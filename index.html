@@ -7,63 +7,21 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <!-- Start of header  -->
-    <header>
-        <div class="logo">Guvi Geek HCL LTD</div>
+    <div class="container">
+        <h1>To-DO List</h1>
+        <div class="input-container">
+            <input type="text" id="taskinput" placeholder="Enter a new task.">
+            
+            <button id="addtaskbtn">Add Task</button>
+        </div>
 
-        <nav>
-            <ul>
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#service">Service</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-<!-- End of the header -->
- <!-- Home section  -->
-    <section id="home" class="homeclass">
-        <h1>Welcome to our Company portal.</h1>
-        <p>Your Success, Our commitment .</p>
-        <a href="#service" class="btn" >Explore Services</a>
-    </section>
-<!-- End of Home section  -->
-
-<!-- Our Service  -->
- <section id="services" class="services">
-    <h2>Our Services</h2>
-    <div class="service-container">
-        <div class="service">Website Development</div>
-        <div class="service">Digital Marketing</div>
-        <div class="service">Consulting</div>
-    </div>
- </section>
-
- <!-- //end of the service section  -->
-    
- <section id="about" class="about">
-    <h2>About Us</h2>
-    <p>We are a team of professional dedicate to helping your business grow through technologies and innovation.</p>
- </section>
-
- <!-- end of the about Section  -->
-
- <!-- Contact Section  -->
-
- <section id="contact" class="contact">
-    <h2>Contact Us</h2>
-    <form action=""#>
-        <input type="text" placeholder="Your Name" required>
-        <input type="email" placeholder="Your Email" required>
-        <textarea name="" id="" placeholder="Your Message"></textarea>
-        <button type="submit">Send</button>
-    </form>
- </section>
- <!-- end of the contact section  -->
-
-
- <footer>
-    <p>&copy;2025 Guvi-Geek HCL Ltd.All rights reserved.</p>
- </footer>
+        <ul id="tasklist">
+            
+        </ul>
+    </div>  
+  
 </body>
+<script src="script.js"></script>
+
 </html>
+
