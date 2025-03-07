@@ -7,19 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>To-DO List</h1>
-        <div class="input-container">
-            <input type="text" id="taskinput" placeholder="Enter a new task.">
-            
-            <button id="addtaskbtn">Add Task</button>
-        </div>
+    <h2>User Data</h2>
+   
+    <input type="text" id="username" placeholder="Enter username">
+    <input type="text" id="userage" placeholder="Enter Age.">
+    <button id="addbtn">Add Entry</button>
 
-        <ul id="tasklist">
-            
-        </ul>
-    </div>  
-  
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Action</th>
+            </tr>
+
+            <tbody id="tablebody">
+                
+                <!-- //store dynamic of the table inside block  -->
+            </tbody>
+        </thead>
+    </table>
 </body>
 <script src="script.js"></script>
 
