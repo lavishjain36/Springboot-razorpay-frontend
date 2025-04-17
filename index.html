@@ -3,44 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Razorpay Payment</title>
 </head>
 <body>
-   <div class="calculator">
-    <!-- //display of screen number  -->
-     <input type="text" id="display" class="display" disabled>
+    <h1>Razorpay Payment Gateway Integration</h1>
+    <button id="pay-button">Pay Now</button>
 
-     <!-- Buttons grid format-->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+   
+<script>
+    document.getElementById('pay-button').onclick = function () {
+        fetch('http://localhost:8080/api/payments/create-order?amount=1000&currency=INR', {
+            method: 'POST'
+        })
+        .then(response => response.json())
+        .then(order => {
+            const options = {
+                key: "rzp_test_38I5IEufjhiOFj", // Your public key
+                amount: order.amount,
+                currency: order.currency,
+                name: "Lavish Company",
+                description: "Test Transaction",
+                order_id: order.id,
+                handler: function (response) {
+                    alert("Payment Successful! Payment ID: " + response.razorpay_payment_id);
+                },
+                prefill: {
+                    name: "Test User",
+                    email: "test@example.com",
+                    contact: "9999999999"
+                },
+                theme: {
+                    color: "#3399cc"
+                }
+            };
+            const rzp = new Razorpay(options);
+            rzp.open();
+        })
+        .catch(err => console.error("Order creation failed: ", err));
+    };
+</script>
 
-     <div class="buttons">
-        <button onclick="cleardisplay()">C</button>
-        <button onclick="appendvalue('/')" class="operator">/</button>
-        <button onclick="appendvalue('*')" class="operator">*</button>
-        <button onclick="backspace()">←</button>
-   
-        <button onclick="appendvalue('7')">7</button>
-        <button onclick="appendvalue('8')">8</button>
-        <button onclick="appendvalue('9')">9</button>
-        <button onclick="appendvalue('-')" class="operator">-</button>
-   
-        <button onclick="appendvalue('4')">4</button>
-        <button onclick="appendvalue('5')">5</button>
-        <button onclick="appendvalue('6')">6</button>
-        <button onclick="appendvalue('+')" class="operator">+</button>
-   
-        <button onclick="appendvalue('1')">1</button>
-        <button onclick="appendvalue('2')">2</button>
-        <button onclick="appendvalue('3')">3</button>
-        <button onclick="calculatresult()" class="operator">=</button>
-   
-        <button onclick="appendvalue('0')">0</button>
-        <button onclick="appendvalue('.')">.</button>
-     </div>
 
-   </div>
+    </script>
 </body>
-<script src="script.js"></script>
-
 </html>
-
